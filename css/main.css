@@ -1,0 +1,95 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+html {
+  box-sizing: inherit;
+  font-size: 62.5%; }
+
+@keyframes animateThirdCircle {
+  0%, 50% {
+    transform: translate(-50%, -50%) scale(1); }
+  50%, 100% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0; } }
+
+@keyframes animateSecondCircle {
+  0%, 20% {
+    transform: translate(-50%, -50%) scale(1); }
+  80%, 100% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0; } }
+
+@keyframes animateFirstCircle {
+  0%, 40% {
+    transform: translate(-50%, -50%) scale(1); }
+  90%, 100% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0; } }
+
+@keyframes animateBackground {
+  0% {
+    opacity: 0;
+    visibility: hidden; }
+  100% {
+    opacity: 1;
+    visibility: visible; } }
+
+.section {
+  background: url(https://i.imgur.com/cDviNpY.png) center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%; }
+
+.preloader {
+  position: absolute;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  backdrop-filter: blur(0.3rem);
+  transition: all 0.5s ease-out;
+  animation: animateBackground 0.5s linear; }
+  .preloader__icon, .preloader__icon-box {
+    width: 11.8rem;
+    height: 11.8rem; }
+  .preloader__icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%; }
+  .preloader__img {
+    width: 11.8rem;
+    height: 11.8rem; }
+  .preloader__bg {
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 0.5s ease-out;
+    height: inherit;
+    width: inherit; }
+  .preloader__circle {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    height: 11.8rem;
+    width: 11.8rem; }
+    .preloader__circle--1 {
+      border: 0.3rem solid rgba(0, 0, 67, 0.4);
+      animation: animateFirstCircle 1.5s ease-out infinite; }
+    .preloader__circle--2 {
+      border: 0.2rem solid rgba(0, 0, 67, 0.4);
+      animation: animateSecondCircle 1.5s ease-out infinite; }
+    .preloader__circle--3 {
+      border: 0.1rem solid rgba(0, 0, 67, 0.4);
+      animation: animateThirdCircle 1.5s ease-out infinite; }

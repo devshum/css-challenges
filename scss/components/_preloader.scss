@@ -1,0 +1,125 @@
+@keyframes animateThirdCircle {
+  0%, 50%  {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50%, 100%  {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes animateSecondCircle {
+  0%, 20%  {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  80%, 100%  {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes animateFirstCircle {
+  0%, 40%  {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  90%, 100%  {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes animateBackground {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.section {
+  background: url(https://i.imgur.com/cDviNpY.png) center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.preloader {
+  position: absolute;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  backdrop-filter: blur(0.3rem);
+  transition: $transition;
+  animation: animateBackground 0.5s linear;
+
+  &__icon,
+  &__icon-box {
+    width: 11.8rem;
+    height: 11.8rem;
+  }
+
+  &__icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  &__img {
+    width: 11.8rem;
+    height: 11.8rem;
+  }
+
+  &__bg {
+    background: rgba(255, 255, 255, 0.6);
+    
+    transition: $transition;
+    height: inherit;
+    width: inherit;
+  }
+
+  &__circle {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+
+    height: 11.8rem;
+    width: 11.8rem;
+
+    &--1 {
+      border: 0.3rem solid rgba($c-blue-dark, .4);
+
+      animation: animateFirstCircle 1.5s ease-out infinite;
+    }
+
+    &--2 {
+
+      border: 0.2rem solid rgba($c-blue-dark, .4);
+
+      animation: animateSecondCircle 1.5s ease-out infinite;
+     
+    }
+
+    &--3 {
+      border: 0.1rem solid rgba($c-blue-dark, .4);
+
+      animation: animateThirdCircle 1.5s ease-out infinite;
+    }
+  }
+}
