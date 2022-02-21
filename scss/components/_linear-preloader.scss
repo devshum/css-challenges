@@ -1,0 +1,205 @@
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes moveInRightLine {
+  0% {
+    transform: translateY(-50%) translateX(-100%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes freeze {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes moveInRightOverflow {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(10%);
+  }
+}
+
+@keyframes goFurtherOverflow {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(100%);
+  }
+}
+
+@keyframes moveInRightIcon {
+  0% { opacity: 1; }
+  
+  100% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes freezeIcon {
+  0% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  100% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInRightOverflowIcon {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 110%;
+    opacity: 1;
+  }
+}
+
+@keyframes preloaderEnd {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.linear-preloader {
+  position: fixed;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  top: 0;
+
+  animation: preloaderEnd 1s 3.5s forwards;
+  backdrop-filter: blur(1rem);
+  transition: $transition;
+
+  &__bg {
+    background: rgba(255, 255, 255, 0.9);
+    
+    transform-origin: right;
+    transition: $transition;
+    height: inherit;
+    width: inherit;
+
+    animation: moveInRight .5s ease-out;
+  }
+
+  &__icon {
+    font-size: 3.2rem;
+    white-space: nowrap;
+    color: $c-white;
+
+    &--first {
+      left: 0;
+
+      transform: translate(-100%, -50%);
+
+      animation: moveInRightIcon .5s ease-out 1s;
+
+      opacity: 0;
+    }
+
+    &--second {
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      opacity: 0;
+
+      animation: freezeIcon 1s 1.5s;
+    }
+
+    &--third {
+      transform: translate(-50%, -50%);
+
+      opacity: 0;
+      left: 50%;
+
+      animation: moveInRightOverflowIcon .5s ease-out 2.5s;
+    }
+  }
+
+  &__icon,
+  &__line {
+    position: absolute;
+    top: 50%;
+  }
+
+  &__line {
+    background-color: $c-blue-dark;
+    height: 11.8rem;
+    width: 100%;
+    
+    transition: $transition;
+
+    &--first {
+      animation: moveInRightLine .5s ease-out .5s;
+
+      transform: translateY(-50%) translateX(-100%);
+
+      opacity: 0;
+    }
+
+    &--second,
+    &--third,
+    &--fourth { opacity: 0; }
+
+    &--second {
+      animation: freeze 1s 1s;
+    }
+
+    &--third {
+      animation: moveInRightOverflow .5s 2s;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    &--fourth {
+      animation: goFurtherOverflow .5s ease-out 2.5s;
+    }
+  }
+}
+
+.btn {
+  font-size: 3.6rem;
+  position: absolute;
+  top: 10%;
+  left: 2%;
+}
