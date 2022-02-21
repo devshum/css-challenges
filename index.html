@@ -11,7 +11,7 @@
 <body>
   <section class="section">
     <h1>&nbsp;</h1>
-    <div class="preloader">
+    <!-- <div class="preloader">
       <div class="preloader__bg">
         <div class="preloader__icon-box">
           <img class="preloader__img" src="https://i.imgur.com/xUVWvD4.png" alt="cloud img">
@@ -20,7 +20,48 @@
           <span class="preloader__circle preloader__circle--3">&nbsp;</span>
         </div>
       </div>
+    </div> -->
+
+    <div class="linear-preloader">
+      <div class="linear-preloader__bg">&nbsp;</div>
+      <div class="linear-preloader__line linear-preloader__line--first">&nbsp;</div>
+      <div class="linear-preloader__line linear-preloader__line--second">&nbsp;</div>
+      <div class="linear-preloader__line linear-preloader__line--third">&nbsp;</div>
+      <div class="linear-preloader__line linear-preloader__line--fourth">&nbsp;</div>
+    
+      <div class="linear-preloader__icon linear-preloader__icon--first">Your logo</div>
+      <div class="linear-preloader__icon linear-preloader__icon--second">Your logo</div>
+      <div class="linear-preloader__icon linear-preloader__icon--third">Your logo</div>
     </div>
+
+    <button class="btn">Restart animation</button>
   </section>
+
+  <script>
+    const btn = document.querySelector('.btn');
+    const section = document.querySelector('.section');
+    
+    btn.addEventListener('click', () => {
+      const preloader = document.querySelector('.linear-preloader');
+      preloader.remove();
+      section.insertAdjacentHTML('beforeend', 
+
+      `
+        <div class="linear-preloader">
+          <div class="linear-preloader__bg">&nbsp;</div>
+          <div class="linear-preloader__line linear-preloader__line--first">&nbsp;</div>
+          <div class="linear-preloader__line linear-preloader__line--second">&nbsp;</div>
+          <div class="linear-preloader__line linear-preloader__line--third">&nbsp;</div>
+          <div class="linear-preloader__line linear-preloader__line--fourth">&nbsp;</div>
+    
+          <div class="linear-preloader__icon linear-preloader__icon--first">Your logo :)</div>
+          <div class="linear-preloader__icon linear-preloader__icon--second">Your logo :)</div>
+          <div class="linear-preloader__icon linear-preloader__icon--third">Your logo :)</div>
+        </div>
+      </section>
+      `
+      )
+    });
+  </script>
 </body>
 </html>

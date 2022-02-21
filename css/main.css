@@ -11,6 +11,9 @@ html {
   box-sizing: inherit;
   font-size: 62.5%; }
 
+body {
+  font-family: sans-serif; }
+
 @keyframes animateThirdCircle {
   0%, 50% {
     transform: translate(-50%, -50%) scale(1); }
@@ -41,8 +44,8 @@ html {
     visibility: visible; } }
 
 .section {
-  background: url(https://i.imgur.com/cDviNpY.png) center no-repeat;
-  background-size: cover;
+  background: url(https://3.bp.blogspot.com/-iL6IJbIPb1k/WdXqAarHFuI/AAAAAAAAVPw/6HTZEhJjOfwLPzVJRMwlBbI4SIjF_XMkQCLcBGAs/s1600/05-10-2017%2B10-14-31.png) center no-repeat;
+  background-size: contain;
   height: 100vh;
   width: 100%; }
 
@@ -93,3 +96,136 @@ html {
     .preloader__circle--3 {
       border: 0.1rem solid rgba(0, 0, 67, 0.4);
       animation: animateThirdCircle 1.5s ease-out infinite; }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    width: 0; }
+  100% {
+    width: 100%;
+    opacity: 1; } }
+
+@keyframes moveInRightLine {
+  0% {
+    transform: translateY(-50%) translateX(-100%);
+    opacity: 1; }
+  100% {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1; } }
+
+@keyframes freeze {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0); }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0); } }
+
+@keyframes moveInRightOverflow {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(10%); } }
+
+@keyframes goFurtherOverflow {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(10%); }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(100%); } }
+
+@keyframes moveInRightIcon {
+  0% {
+    opacity: 1; }
+  100% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1; } }
+
+@keyframes freezeIcon {
+  0% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1; }
+  100% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1; } }
+
+@keyframes moveInRightOverflowIcon {
+  0% {
+    opacity: 1; }
+  100% {
+    left: 110%;
+    opacity: 1; } }
+
+@keyframes preloaderEnd {
+  100% {
+    transform: translateX(100%); } }
+
+.linear-preloader {
+  position: fixed;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  animation: preloaderEnd 1s 3.5s forwards;
+  backdrop-filter: blur(1rem);
+  transition: all 0.5s ease-out; }
+  .linear-preloader__bg {
+    background: rgba(255, 255, 255, 0.9);
+    transform-origin: right;
+    transition: all 0.5s ease-out;
+    height: inherit;
+    width: inherit;
+    animation: moveInRight .5s ease-out; }
+  .linear-preloader__icon {
+    font-size: 3.2rem;
+    white-space: nowrap;
+    color: #ffffff; }
+    .linear-preloader__icon--first {
+      left: 0;
+      transform: translate(-100%, -50%);
+      animation: moveInRightIcon .5s ease-out 1s;
+      opacity: 0; }
+    .linear-preloader__icon--second {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: freezeIcon 1s 1.5s; }
+    .linear-preloader__icon--third {
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      left: 50%;
+      animation: moveInRightOverflowIcon .5s ease-out 2.5s; }
+  .linear-preloader__icon, .linear-preloader__line {
+    position: absolute;
+    top: 50%; }
+  .linear-preloader__line {
+    background-color: #000043;
+    height: 11.8rem;
+    width: 100%;
+    transition: all 0.5s ease-out; }
+    .linear-preloader__line--first {
+      animation: moveInRightLine .5s ease-out .5s;
+      transform: translateY(-50%) translateX(-100%);
+      opacity: 0; }
+    .linear-preloader__line--second, .linear-preloader__line--third, .linear-preloader__line--fourth {
+      opacity: 0; }
+    .linear-preloader__line--second {
+      animation: freeze 1s 1s; }
+    .linear-preloader__line--third {
+      animation: moveInRightOverflow .5s 2s;
+      transform: translateY(-50%) translateX(0); }
+    .linear-preloader__line--fourth {
+      animation: goFurtherOverflow .5s ease-out 2.5s; }
+
+.btn {
+  font-size: 3.6rem;
+  position: absolute;
+  top: 10%;
+  left: 2%; }
