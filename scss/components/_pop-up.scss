@@ -1,0 +1,124 @@
+.pop-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition;
+
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(24, 24, 24, 0.4);
+    cursor: pointer;
+  }
+
+  &.opened {
+    opacity: 1;
+    visibility: visible;
+
+    .pop-up {
+      &__content {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 1.3rem;
+    top: 1.3rem;
+    font-weight: bold;
+    font-style: normal;
+    cursor: pointer;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    position: relative;
+    
+    width: 80vh;
+    padding: 5rem;
+    border-radius: 2rem;
+    background-color: $c-white;
+    transform: scale(0.25);
+    transition: $transition;
+  }
+  
+  &__title {
+    font-weight: bold;
+  }
+  
+  &__paragraph {
+    text-align: center;
+    line-height: 1.4;
+    
+    span {
+      background-color: $c-gray;
+      border-radius: 50%;
+      padding: 0 0.4rem;
+      cursor: pointer;
+      transition: $transition;
+      
+      &:hover {
+        background-color: darken($c-gray, 10%);
+      }
+    }
+  }
+  
+  &__btn {
+    font-size: inherit;
+    border: unset;
+    padding: 0.8rem 1.6rem;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    transition: $transition;
+    border: 0.1rem solid transparent;
+    
+    &--bg {
+      background: $c-black;
+      color: $c-white;
+      
+      &:hover {
+        background: $c-gray;
+        color: $c-black;
+      }
+    }
+    
+    &--nobg {
+      background: unset;
+     
+      &:hover {
+        border: 0.1rem solid $c-gray-dark;
+      }
+    }
+  }
+}
+
+.btn-black {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $c-black;
+  border: unset;
+  font-size: 2rem;
+  border-radius: 10rem;
+  color: $c-white;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}

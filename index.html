@@ -22,7 +22,7 @@
       </div>
     </div> -->
 
-    <div class="linear-preloader">
+    <!-- <div class="linear-preloader">
       <div class="linear-preloader__bg">&nbsp;</div>
       <div class="linear-preloader__line linear-preloader__line--first">&nbsp;</div>
       <div class="linear-preloader__line linear-preloader__line--second">&nbsp;</div>
@@ -34,34 +34,80 @@
       <div class="linear-preloader__icon linear-preloader__icon--third">Your logo</div>
     </div>
 
-    <button class="btn">Restart animation</button>
+    <button class="btn">Restart animation</button> -->
+
+
+
+    <figure class="pop-up opened">
+      <div class="pop-up__bg">&nbsp;</div>
+     
+      <div class="pop-up__content">
+        <div class="pop-up__icons mb-16 font-20">
+           <span>😎</span>
+           <span>💞</span>
+           <span>💥</span>
+        </div>
+        
+        <figcaption class="pop-up__title mb-16 font-20">
+          Stay with your business
+        </figcaption>
+        
+        <p class="pop-up__paragraph mb-24">Sign up to ensure that you don't miss the next promotion and other important events in Personal Account. <span>?</span></p>
+        
+        <div class="pop-up__btns">
+          <button class="pop-up__btn pop-up__btn--bg">Sign Up</button>
+          <button class="pop-up__btn pop-up__btn--nobg">Sign In</button>
+        </div>
+        
+        <i class="pop-up__icon">&#10005;</i>
+      </div>
+  
+    </figure>
+  
+    <button class="btn-black">Open popup</button>
   </section>
 
   <script>
-    const btn = document.querySelector('.btn');
-    const section = document.querySelector('.section');
+    // const btn = document.querySelector('.btn');
+    // const section = document.querySelector('.section');
     
-    btn.addEventListener('click', () => {
-      const preloader = document.querySelector('.linear-preloader');
-      preloader.remove();
-      section.insertAdjacentHTML('beforeend', 
+    // btn.addEventListener('click', () => {
+    //   const preloader = document.querySelector('.linear-preloader');
+    //   preloader.remove();
+    //   section.insertAdjacentHTML('beforeend', 
 
-      `
-        <div class="linear-preloader">
-          <div class="linear-preloader__bg">&nbsp;</div>
-          <div class="linear-preloader__line linear-preloader__line--first">&nbsp;</div>
-          <div class="linear-preloader__line linear-preloader__line--second">&nbsp;</div>
-          <div class="linear-preloader__line linear-preloader__line--third">&nbsp;</div>
-          <div class="linear-preloader__line linear-preloader__line--fourth">&nbsp;</div>
+    //   `
+    //     <div class="linear-preloader">
+    //       <div class="linear-preloader__bg">&nbsp;</div>
+    //       <div class="linear-preloader__line linear-preloader__line--first">&nbsp;</div>
+    //       <div class="linear-preloader__line linear-preloader__line--second">&nbsp;</div>
+    //       <div class="linear-preloader__line linear-preloader__line--third">&nbsp;</div>
+    //       <div class="linear-preloader__line linear-preloader__line--fourth">&nbsp;</div>
     
-          <div class="linear-preloader__icon linear-preloader__icon--first">Your logo :)</div>
-          <div class="linear-preloader__icon linear-preloader__icon--second">Your logo :)</div>
-          <div class="linear-preloader__icon linear-preloader__icon--third">Your logo :)</div>
-        </div>
-      </section>
-      `
-      )
-    });
+    //       <div class="linear-preloader__icon linear-preloader__icon--first">Your logo :)</div>
+    //       <div class="linear-preloader__icon linear-preloader__icon--second">Your logo :)</div>
+    //       <div class="linear-preloader__icon linear-preloader__icon--third">Your logo :)</div>
+    //     </div>
+    //   </section>
+    //   `
+    //   )
+    // });
+
+    const popup = document.querySelector('.pop-up');
+
+    const btnTest = document.querySelector('.btn-black');
+
+    const closePopUpItems = [document.querySelector('.pop-up__icon'), document.querySelector('.pop-up__bg')]
+
+    btnTest.addEventListener('click', () => {
+      popup.classList.add('opened')
+    })
+
+    closePopUpItems.forEach(closeItem => {
+      closeItem.addEventListener('click', () => {
+        popup.classList.remove('opened')
+      })
+    })
   </script>
 </body>
 </html>
